@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class SuperArray {
 
     private String[] data;
@@ -29,6 +31,10 @@ public class SuperArray {
         String replaced = data[index];
         data[index] = element;
         return replaced;
+    }
+
+    private void resize() {
+        data = Arrays.copyOf(data, data.length * 2);
     }
 
     @Override
