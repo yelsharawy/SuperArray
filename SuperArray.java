@@ -19,6 +19,9 @@ public class SuperArray {
     }
 
     public boolean add(String element) {
+        if (size == data.length) {
+            resize();
+        }
         data[size++] = element;
         return true;
     }
@@ -35,6 +38,13 @@ public class SuperArray {
 
     private void resize() {
         data = Arrays.copyOf(data, data.length * 2);
+        /* version without using Arrays:
+        String[] newData = new String[data.length * 2];
+        for (int i = 0; i < size; i++) {  // size == data.length, doesn't matter
+            newData[i] = data[i];
+        }
+        data = newData;
+        */
     }
 
     @Override
