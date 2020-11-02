@@ -21,6 +21,10 @@ public class SuperArray {
         return true;
     }
 
+    public String get(int index) {
+        return data[index];
+    }
+
     @Override
     public String toString() {
         if (size == 0) return "[]";
