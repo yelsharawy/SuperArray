@@ -12,4 +12,7 @@ public class SuperArray {
         this(8);
     }
 
+    public int size() {
+        return size;
+    }
 }
