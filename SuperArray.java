@@ -15,4 +15,10 @@ public class SuperArray {
     public int size() {
         return size;
     }
+
+    public boolean add(String element) {
+        data[size++] = element;
+        return true;
+    }
+
 }
