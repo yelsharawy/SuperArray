@@ -21,4 +21,15 @@ public class SuperArray {
         return true;
     }
 
+    @Override
+    public String toString() {
+        if (size == 0) return "[]";
+        StringBuilder output = new StringBuilder().append('[');
+        output.append(data[0]);
+        for (int i = 1; i < size; i++) {
+            output.append(", ").append(data[i]);
+        }
+        return output.append(']').toString();
+    }
+
 }
