@@ -92,6 +92,17 @@ public class SuperArray {
         */
     }
 
+    public String[] toArray() {
+        return Arrays.copyOf(data, size);
+        /* version without using Arrays:
+        String[] output = new String[size];
+        for (int i = 0; i < size; i++) {
+            output[i] = data[i];
+        }
+        return output;
+        */
+    }
+
     @Override
     public String toString() {
         if (size == 0) return "[]";
