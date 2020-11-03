@@ -55,6 +55,15 @@ public class SuperArray {
         return false;
     }
 
+    public String remove(int index) {
+        String removed = data[index];
+        size--;
+        for (int i = index; i < size; i++) {
+            data[i] = data[i+1];
+        }
+        return removed;
+    }
+
     public void clear() {  // no cleanup necessary,
         size = 0;          // but resizing back to initial may be preferred
     }                      // that's a task for future me
