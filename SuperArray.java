@@ -46,6 +46,10 @@ public class SuperArray {
         return replaced;
     }
 
+    public void clear() {  // no cleanup necessary,
+        size = 0;          // but resizing back to initial may be preferred
+    }                      // that's a task for future me
+
     private void resize() {
         data = Arrays.copyOf(data, data.length * 2);
         /* version without using Arrays:
