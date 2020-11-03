@@ -66,16 +66,22 @@ public class SuperArray {
 
     public String remove(int index) {
         String removed = data[index];
-        size--;
+        data[--size] = null;
         for (int i = index; i < size; i++) {
             data[i] = data[i+1];
         }
         return removed;
     }
 
-    public void clear() {  // no cleanup necessary,
-        size = 0;          // but resizing back to initial may be preferred
-    }                      // that's a task for future me
+    public void clear() {
+        Arrays.fill(data, null);
+        /* version without using Arrays:
+        for (int i = 0; i < size; i++) {
+            data[i] = null;
+        }
+        */
+        size = 0;
+    }
 
     public boolean isEmpty() {
         return size == 0;
