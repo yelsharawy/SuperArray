@@ -1,6 +1,9 @@
-public class Demo{
+import java.util.HashSet;
+
+public class Demo {
 
     public static void removeDuplicates(SuperArray s) {
+        /*
         for (int i = 0; i < s.size();) {
             String toTest = s.get(i);
             boolean keep = true;
@@ -14,6 +17,17 @@ public class Demo{
                 i++;
             } else {
                 s.remove(i);
+            }
+        }
+        */
+        HashSet<String> seen = new HashSet<String>();
+        for (int i = 0; i < s.size();) {
+            String toTest = s.get(i);
+            if (seen.contains(toTest)) {
+                s.remove(i);
+            } else {
+                seen.add(toTest);
+                i++;
             }
         }
     }
