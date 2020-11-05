@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Arrays;
 
 public class SuperArray {
@@ -120,4 +121,35 @@ public class SuperArray {
         return output.append(']').toString();
     }
 
+
+
+    public static void removeDuplicates(SuperArray s) {
+        /*
+        for (int i = 0; i < s.size();) {
+            String toTest = s.get(i);
+            boolean keep = true;
+            for (int j = 0; j < i; j++) {
+                if (toTest.equals(s.get(j))) {
+                    keep = false;
+                    break;
+                }
+            }
+            if (keep) {
+                i++;
+            } else {
+                s.remove(i);
+            }
+        }
+        */
+        HashSet<String> seen = new HashSet<String>();
+        for (int i = 0; i < s.size();) {
+            String toTest = s.get(i);
+            if (seen.contains(toTest)) {
+                s.remove(i);
+            } else {
+                seen.add(toTest);
+                i++;
+            }
+        }
+    }
 }
