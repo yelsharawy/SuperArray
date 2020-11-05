@@ -130,6 +130,27 @@ public class SuperArray {
         return output.append(']').toString();
     }
 
+    public boolean equals(SuperArray other) {
+        if (other == null) {
+            return false;
+        } else if (other == this) {  // literally the same object, quick return
+            return true;
+        } else if (size != other.size) {
+            return false;
+        }
+        for (int i = 0; i < size; i++) {
+            if (!data[i].equals(other.data[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof SuperArray ? equals((SuperArray)other) : false;
+    }
+
 
 
     public static void removeDuplicates(SuperArray s) {
