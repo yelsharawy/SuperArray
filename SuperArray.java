@@ -152,4 +152,16 @@ public class SuperArray {
             }
         }
     }
+
+    public static SuperArray findOverlap(SuperArray a, SuperArray b) {
+        SuperArray output = new SuperArray();
+        for (int i = 0; i < a.size(); i++) {
+            String element = a.get(i);
+            if (b.contains(element)) {
+                output.add(element);
+            }
+        }
+        removeDuplicates(output);
+        return output;
+    }
 }
