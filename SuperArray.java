@@ -65,6 +65,15 @@ public class SuperArray {
         return -1;
     }
 
+    public int lastIndexOf(String s) {
+        for (int i = size - 1; i >= 0; i--) {
+            if (data[i].equals(s)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public String remove(int index) {
         String removed = data[index];
         for (int i = index + 1; i < size; i++) {
