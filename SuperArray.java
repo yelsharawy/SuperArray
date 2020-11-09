@@ -19,6 +19,9 @@ public class SuperArray {
     }
 
     public SuperArray(String[] arr) {
+        if (arr == null) {
+            throw new IllegalArgumentException();
+        }
         size = arr.length;
         data = Arrays.copyOf(arr, Math.max(8, arr.length));
         /* without using Arrays
