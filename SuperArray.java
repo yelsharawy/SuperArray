@@ -15,6 +15,17 @@ public class SuperArray {
         this(8);
     }
 
+    public SuperArray(String[] arr) {
+        size = arr.length;
+        data = Arrays.copyOf(arr, Math.max(8, arr.length));
+        /* without using Arrays
+        String[] data = new String[Math.max(8, arr.length)];
+        for (int i = 0; i < arr.length; i++) {
+            data[i] = arr[i];
+        }
+        */
+    }
+
     public int size() {
         return size;
     }
@@ -145,5 +156,5 @@ public class SuperArray {
     public boolean equals(Object other) {
         return other instanceof SuperArray ? equals((SuperArray)other) : false;
     }
-    
+
 }
