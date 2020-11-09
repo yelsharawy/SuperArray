@@ -7,6 +7,9 @@ public class SuperArray {
     private int size;
 
     public SuperArray(int initialCapacity) {
+        if (initialCapacity < 0) {
+            throw new IllegalArgumentException();
+        }
         data = new String[initialCapacity];
         size = 0;
     }
@@ -104,7 +107,7 @@ public class SuperArray {
     }
 
     private void resize() {
-        data = Arrays.copyOf(data, data.length * 2);
+        data = Arrays.copyOf(data, data.length == 0 ? 1 : data.length * 2);
         /* version without using Arrays:
         String[] newData = new String[data.length * 2];
         for (int i = 0; i < size; i++) {  // size == data.length, doesn't matter
