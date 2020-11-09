@@ -3,7 +3,7 @@ import java.util.HashSet;
 public class Demo {
 
     public static void removeDuplicates(SuperArray s) {
-        /*
+        /* regular O(n^2) version
         for (int i = 0; i < s.size();) {
             String toTest = s.get(i);
             boolean keep = true;
@@ -23,11 +23,10 @@ public class Demo {
         HashSet<String> seen = new HashSet<String>();
         for (int i = 0; i < s.size();) {
             String toTest = s.get(i);
-            if (seen.contains(toTest)) {
-                s.remove(i);
-            } else {
-                seen.add(toTest);
+            if (seen.add(toTest)) {
                 i++;
+            } else {
+                s.remove(i);
             }
         }
     }
