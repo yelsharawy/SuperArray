@@ -8,7 +8,7 @@ public class SuperArray {
 
     public SuperArray(int initialCapacity) {
         if (initialCapacity < 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid negative initialCapacity " + initialCapacity);
         }
         data = new String[initialCapacity];
         size = 0;
@@ -20,7 +20,7 @@ public class SuperArray {
 
     public SuperArray(String[] arr) {
         if (arr == null) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid null array given");
         }
         size = arr.length;
         data = Arrays.copyOf(arr, Math.max(8, arr.length));
@@ -46,7 +46,7 @@ public class SuperArray {
 
     public void add(int index, String element) {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
         if (size == data.length) {
             resize();
@@ -59,14 +59,14 @@ public class SuperArray {
 
     public String get(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
         return data[index];
     }
 
     public String set(int index, String element) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
         String replaced = data[index];
         data[index] = element;
@@ -97,7 +97,7 @@ public class SuperArray {
 
     public String remove(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
         String removed = data[index];
         for (int i = index + 1; i < size; i++) {
